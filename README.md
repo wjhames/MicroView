@@ -91,13 +91,12 @@ const count = createSignal(0);
 
 function Counter() {
   return h(
-    'div',
-    { class: 'container' },
-    // Passing the signal directly to h() creates a reactive binding.
-    h('h1', null, count),
-    // Event listeners update the signal, triggering a re-render.
-    h('button', { onClick: () => count(count() + 1) }, '+'),
-    h('button', { onClick: () => count(count() - 1) }, '-')
+    'div', { class: 'container' },
+      // Passing the signal directly to h() creates a reactive binding.
+      h('h1', null, count),
+      // Event listeners update the signal, triggering a re-render.
+      h('button', { onClick: () => count(count() + 1) }, '+'),
+      h('button', { onClick: () => count(count() - 1) }, '-')
   );
 }
 
