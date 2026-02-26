@@ -1,5 +1,5 @@
 import { h } from '../../src/microview.js';
-import { Link } from '../../src/router.js';
+import { Navbar } from './Navbar.js';
 
 /**
  * Main application layout component including navigation.
@@ -9,15 +9,7 @@ export function App({ activeComponent }) {
   return h(
     'div',
     null,
-    h(
-      'nav',
-      { style: 'padding: 10px; border-bottom: 1px solid #ccc;' },
-      h(Link, { to: '/' }, 'Home'),
-      ' | ',
-      h(Link, { to: '/about' }, 'About'),
-      ' | ',
-      h(Link, { to: '/todos' }, 'To-Do App')
-    ),
+    h(Navbar),
     h('hr'),
     activeComponent // Render the active component signal from the router
   );
