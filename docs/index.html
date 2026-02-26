@@ -49,7 +49,7 @@
 <p>MicroView is a lightweight, zero-dependency <strong>JavaScript library</strong> built primarily as a practical exercise in modern front-end engineering. Its development was a focused journey to understand and implement the core concepts of high-performance UI rendering:</p>
 <ol>
 <li><strong>Component Foundations</strong>: The project began as an experiment to grasp how <strong>functional components</strong> and state encapsulation work.</li>
-<li><strong>Reactive Core (Leom)</strong>: This evolved into a deep dive into state management patterns. After exploring common approaches, the decision was made to commit to <strong>Signal-based reactivity</strong>. This choice was driven by understanding that signals offer high performance and enable highly granular DOM updates, eliminating the need for a Virtual DOM. The result is Leom, a minimal, separate project that acts as the core reactive engine.</li>
+<li><strong>Reactive Core (Signal)</strong>: This evolved into a deep dive into state management patterns. After exploring common approaches, the decision was made to commit to <strong>Signal-based reactivity</strong>. This choice was driven by understanding that signals offer high performance and enable highly granular DOM updates, eliminating the need for a Virtual DOM. The result is Signal, a minimal, separate project that acts as the core reactive engine.</li>
 <li><strong>Hyperscript UI</strong>: The declarative UI layer was established by implementing the <strong><code>h()</code> function</strong>, the pure JavaScript equivalent of JSX, to create a concise and readable view layer.</li>
 <li><strong>Community-Driven API</strong>: The current API was significantly refined based on valuable feedback and shared experiences received from the community following a series of posts about the project on LinkedIn.</li>
 <li><strong>Application Readiness</strong>: Routing was added to prepare the library for a real-world test: building a complete Single-Page Application (SPA) using MicroView.</li>
@@ -59,7 +59,7 @@
 <h2>Features</h2>
 <ul>
 <li><strong>HyperScript-Style UI</strong>: Build your UI with a declarative <code>h()</code> function, a lightweight alternative to JSX.</li>
-<li><strong>Reactive Core</strong>: State management is powered by <strong>Leom</strong>, a complete, standalone signal-based engine.</li>
+<li><strong>Reactive Core</strong>: State management is powered by <strong>Signal</strong>, a complete, standalone signal-based engine.</li>
 <li><strong>Built-In SPA Routing</strong>: A simple and powerful hash-based router for building multi-page applications.</li>
 <li><strong>Automatic Cleanup</strong>: Reactive effects are automatically tracked and disposed of, preventing memory leaks.</li>
 <li><strong>Functional Components</strong>: Build your UI with simple, composable functions.</li>
@@ -68,14 +68,14 @@
 <hr>
 <h2>Core Concepts</h2>
 <ol>
-<li><strong>Leom Signals For State Management</strong></li>
+<li><strong>Signal Signals For State Management</strong></li>
 </ol>
-<p>Reactivity in MicroView is powered by <strong>Leom</strong>. Signals are the foundation of this system, holding state and automatically tracking where it's used to ensure only necessary parts of the DOM are updated when the state changes.</p>
+<p>Reactivity in MicroView is powered by <strong>Signal</strong>. Signals are the foundation of this system, holding state and automatically tracking where it's used to ensure only necessary parts of the DOM are updated when the state changes.</p>
 <ul>
 <li><code>createSignal(initialValue)</code>: Creates a new signal that returns a single function acting as both a <strong>getter</strong> (no arguments) and a <strong>setter</strong> (with an argument).</li>
 <li><code>createEffect(callback)</code>: Executes a function and automatically re-runs it whenever a signal it depends on changes.</li>
 </ul>
-<pre class="prettyprint source lang-js"><code>import { createSignal, createEffect } from './leom.js';
+<pre class="prettyprint source lang-js"><code>import { createSignal, createEffect } from './signal.js';
 
 const count = createSignal(0);
 
@@ -98,7 +98,7 @@ count(1); // -> &quot;The count is now: 1&quot;
 </ol>
 <p>The <code>mount(selector, component)</code> function connects your root component to a DOM element (e.g., <code>#root</code>). It returns a <code>dispose</code> function to completely unmount the component and clean up all associated reactive effects, ensuring no memory leaks.</p>
 <p>You can also use <code>onCleanup(fn)</code> to register a function to be called when the current reactive scope (component of effect) is disposed.</p>
-<pre class="prettyprint source lang-js"><code>import { onCleanup } from './leom.js';
+<pre class="prettyprint source lang-js"><code>import { onCleanup } from './signal.js';
 
 function MyComponent() {
   const timer = setInterval(() => console.log('tick'), 1000);
@@ -113,7 +113,7 @@ function MyComponent() {
 </code></pre>
 <h2>Example: A Reactive Counter</h2>
 <p>This shows how signals are used directly as reactive bindings in the UI.</p>
-<pre class="prettyprint source lang-js"><code>import { createSignal } from './leom.js';
+<pre class="prettyprint source lang-js"><code>import { createSignal } from './signal.js';
 import { h, mount } from './microview.js';
 
 const count = createSignal(0);
@@ -161,7 +161,7 @@ function App({ activeComponent }) {
 <p>The next steps of for this project include:</p>
 <ol>
 <li>Building a complete, non-trivial application (e.g. complex dashboard) using MicroView to validate its API and performance under load.</li>
-<li>Explore optimization opportunities within the Leom core.</li>
+<li>Explore optimization opportunities within the Signal core.</li>
 </ol>
 <h2>Try It Out</h2>
 <ol>
@@ -187,7 +187,7 @@ cd MicroView
 
 <header>
     
-        <h2>leom.js</h2>
+        <h2>signal.js</h2>
         
     
 </header>
@@ -196,7 +196,7 @@ cd MicroView
     <div class="container-overview">
     
         
-            <div class="description">Leom - A minimal reactive core engine for building user interfaces.</div>
+            <div class="description">Signal - A minimal reactive core engine for building user interfaces.</div>
         
 
         
@@ -241,7 +241,7 @@ cd MicroView
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="leom.js.html">leom.js</a>, <a href="leom.js.html#line1">line 1</a>
+        <a href="signal.js.html">signal.js</a>, <a href="signal.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
