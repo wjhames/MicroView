@@ -104,7 +104,8 @@
 
 
 <div class="description">
-    Creates a reactive computation that automatically tracks its dependencies and re-runswhenever any of those dependencies change.
+    Creates a reactive computation that automatically tracks its dependencies and re-runs
+whenever any of those dependencies change.
 </div>
 
 
@@ -159,7 +160,11 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const count = createSignal(0);createEffect(() => {  console.log('The count is:', count());});// This will log "The count is: 0" initially, and then re-log whenever count changes.</code></pre>
+    <pre class="prettyprint"><code>const count = createSignal(0);
+createEffect(() => {
+  console.log('The count is:', count());
+});
+// This will log "The count is: 0" initially, and then re-log whenever count changes.</code></pre>
 
 
 
@@ -171,7 +176,8 @@
 
 
 <div class="description">
-    Creates a cached, computed value that is derived from other reactive signals or memos.The memo's value is only recomputed when its dependencies change.
+    Creates a cached, computed value that is derived from other reactive signals or memos.
+The memo's value is only recomputed when its dependencies change.
 </div>
 
 
@@ -226,7 +232,10 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const firstName = createSignal('John');const lastName = createSignal('Doe');const fullName = createMemo(() => `${firstName()} ${lastName()}`);console.log(fullName()); // "John Doe"</code></pre>
+    <pre class="prettyprint"><code>const firstName = createSignal('John');
+const lastName = createSignal('Doe');
+const fullName = createMemo(() => `${firstName()} ${lastName()}`);
+console.log(fullName()); // "John Doe"</code></pre>
 
 
 
@@ -238,7 +247,9 @@
 
 
 <div class="description">
-    Creates a reactive context that manages the lifecycle of nested effects and memos.When the root is disposed, all computations within it are also cleaned up.This is useful for mounting and unmounting components.
+    Creates a reactive context that manages the lifecycle of nested effects and memos.
+When the root is disposed, all computations within it are also cleaned up.
+This is useful for mounting and unmounting components.
 </div>
 
 
@@ -300,7 +311,8 @@
 
 
 <div class="description">
-    Creates a reactive value store (a "signal") and returns a single function to get and set its value.When the signal's value changes, any effects or memos that depend on it are automatically re-run.
+    Creates a reactive value store (a "signal") and returns a single function to get and set its value.
+When the signal's value changes, any effects or memos that depend on it are automatically re-run.
 </div>
 
 
@@ -355,7 +367,9 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const count = createSignal(0); // Create a signal with initial value 0count(); // Returns 0count(5); // Sets the value to 5</code></pre>
+    <pre class="prettyprint"><code>const count = createSignal(0); // Create a signal with initial value 0
+count(); // Returns 0
+count(5); // Sets the value to 5</code></pre>
 
 
 
@@ -367,7 +381,8 @@
 
 
 <div class="description">
-    Registers a cleanup function to be called just before the current effect or root is re-run or disposed.This is useful for clearing intervals, removing event listeners, or any other teardown logic.
+    Registers a cleanup function to be called just before the current effect or root is re-run or disposed.
+This is useful for clearing intervals, removing event listeners, or any other teardown logic.
 </div>
 
 
@@ -429,7 +444,9 @@
 
 
 <div class="description">
-    Schedules an update for a given effect, using `queueMicrotask` for efficient batching.This prevents unnecessary re-renders by collecting all changes within a single event loop tickand executing them together.
+    Schedules an update for a given effect, using `queueMicrotask` for efficient batching.
+This prevents unnecessary re-renders by collecting all changes within a single event loop tick
+and executing them together.
 </div>
 
 
@@ -503,7 +520,8 @@
 
 
 <div class="description">
-    A component that creates a hyperlink for client-side navigation.It renders an `<a>` tag with an `href` attribute that points to a URL hash.
+    A component that creates a hyperlink for client-side navigation.
+It renders an `<a>` tag with an `href` attribute that points to a URL hash.
 </div>
 
 
@@ -791,7 +809,8 @@
 
             
 
-            <td class="description last">An object where keys are URL paths (e.g., '/', '/about')and values are component functions to render for those paths. A '/404' route is recommended for handling unknown paths.</td>
+            <td class="description last">An object where keys are URL paths (e.g., '/', '/about')
+and values are component functions to render for those paths. A '/404' route is recommended for handling unknown paths.</td>
         </tr>
 
     
@@ -861,7 +880,9 @@
 
         
 <div class="param-desc">
-    An object containing:- `activeComponent`: A memoized signal that returns the component function for the current route.- `navigate`: A function to programmatically change the route.
+    An object containing:
+- `activeComponent`: A memoized signal that returns the component function for the current route.
+- `navigate`: A function to programmatically change the route.
 </div>
 
 
@@ -885,7 +906,21 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const routes = {  '/': () => h('h1', {}, 'Home'),  '/about': () => h('h1', {}, 'About'),  '/404': () => h('h1', {}, 'Not Found')};const { activeComponent, navigate } = createRouter(routes);// In your main component:h('div', {},  h('nav', {},    Link({ to: '/', children: ['Home'] }),    Link({ to: '/about', children: ['About'] })  ),  activeComponent // This will render the correct component);</code></pre>
+    <pre class="prettyprint"><code>const routes = {
+  '/': () => h('h1', {}, 'Home'),
+  '/about': () => h('h1', {}, 'About'),
+  '/404': () => h('h1', {}, 'Not Found')
+};
+const { activeComponent, navigate } = createRouter(routes);
+
+// In your main component:
+h('div', {},
+  h('nav', {},
+    Link({ to: '/', children: ['Home'] }),
+    Link({ to: '/about', children: ['About'] })
+  ),
+  activeComponent // This will render the correct component
+);</code></pre>
 
 
 
@@ -903,7 +938,8 @@
 
 
 <div class="description">
-    A hyperscript-style function for creating DOM elements and components.It handles static and reactive (signal/memo) props and children.
+    A hyperscript-style function for creating DOM elements and components.
+It handles static and reactive (signal/memo) props and children.
 </div>
 
 
@@ -1084,7 +1120,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="microview.js.html">microview.js</a>, <a href="microview.js.html#line27">line 27</a>
+        <a href="microview.js.html">microview.js</a>, <a href="microview.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -1137,7 +1173,16 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>// Static elementh('h1', { class: 'title' }, 'Hello, World!');// Reactive elementconst count = createSignal(0);h('p', {}, 'Count: ', count);// Componentconst MyComponent = ({ greeting }) => h('p', {}, greeting);h(MyComponent, { greeting: 'Welcome' });</code></pre>
+    <pre class="prettyprint"><code>// Static element
+h('h1', { class: 'title' }, 'Hello, World!');
+
+// Reactive element
+const count = createSignal(0);
+h('p', {}, 'Count: ', count);
+
+// Component
+const MyComponent = ({ greeting }) => h('p', {}, greeting);
+h(MyComponent, { greeting: 'Welcome' });</code></pre>
 
 
 
@@ -1271,7 +1316,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="microview.js.html">microview.js</a>, <a href="microview.js.html#line114">line 114</a>
+        <a href="microview.js.html">microview.js</a>, <a href="microview.js.html#line122">line 122</a>
     </li></ul></dd>
     
 
@@ -1353,7 +1398,11 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const App = () => h('div', {}, 'My App');const dispose = mount('#app', App);// To unmountdispose();</code></pre>
+    <pre class="prettyprint"><code>const App = () => h('div', {}, 'My App');
+const dispose = mount('#app', App);
+
+// To unmount
+dispose();</code></pre>
 
 
 
@@ -1379,7 +1428,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Tue Oct 21 2025 02:00:34 GMT-0500 (Central Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Feb 25 2026 19:07:12 GMT-0600 (Central Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
