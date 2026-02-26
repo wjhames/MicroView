@@ -1,4 +1,4 @@
-import { createMemo } from '../../src/leom.js';
+import { createMemo } from '../../src/signal.js';
 import { h } from '../../src/microview.js';
 
 /**

@@ -1,4 +1,4 @@
-import { createSignal, createMemo } from './leom.js';
+import { createSignal, createMemo } from './signal.js';
 import { h } from './microview.js';
 
 /**

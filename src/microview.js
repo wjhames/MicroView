@@ -1,4 +1,4 @@
-import { createRoot, createEffect as effect } from './leom.js';
+import { createRoot, createEffect as effect } from './signal.js';
 
 /**
  * @file Microview - A lightweight library for creating reactive user interfaces.
