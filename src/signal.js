@@ -1,5 +1,5 @@
 /**
- * @file Leom - A minimal reactive core engine for building user interfaces.
+ * @file Signal - A minimal reactive core engine for building user interfaces.
  * @author William Hames
  * @version 1.0.0
  */
@@ -51,7 +51,7 @@ export const scheduleUpdate = (effect) => {
         // CYCLE DETECTION
         if (eff.running) {
           console.error(
-            'Dependency Cycle Detected in Leom: An effect is trying to trigger itself synchronously. Skipping re-run.',
+            'Dependency Cycle Detected in Signal: An effect is trying to trigger itself synchronously. Skipping re-run.',
             eff
           );
           continue;
@@ -63,7 +63,7 @@ export const scheduleUpdate = (effect) => {
           eff();
         } catch (e) {
           console.error(
-            'Leom Effect Execution Failed (Graceful Halt):',
+            'Signal Effect Execution Failed (Graceful Halt):',
             e.stack || e
           );
         } finally {
@@ -83,7 +83,7 @@ export const onCleanup = (fn) => {
   if (currentEffect) {
     currentEffect.cleanups.push(fn);
   } else {
-    console.warn('Leom: onCleanup called outside a tracking context.');
+    console.warn('Signal: onCleanup called outside a tracking context.');
   }
 };
 
@@ -247,7 +247,7 @@ export const createRoot = (fn) => {
   try {
     fn(dispose); // Pass the dispose function to the user's setup code
   } catch (e) {
-    console.error('Leom: Error in createRoot function:', e.stack || e);
+    console.error('Signal: Error in createRoot function:', e.stack || e);
   } finally {
     currentEffect = prevEffect;
   }
@@ -259,7 +259,7 @@ export const createRoot = (fn) => {
       try {
         c();
       } catch (e) {
-        console.error('Leom: Error during root disposal cleanup:', e);
+        console.error('Signal: Error during root disposal cleanup:', e);
       }
     });
     rootCleanup.length = 0;
