@@ -75,7 +75,7 @@
 <li><code>createSignal(initialValue)</code>: Creates a new signal that returns a single function acting as both a <strong>getter</strong> (no arguments) and a <strong>setter</strong> (with an argument).</li>
 <li><code>createEffect(callback)</code>: Executes a function and automatically re-runs it whenever a signal it depends on changes.</li>
 </ul>
-<pre class="prettyprint source lang-js"><code>import { createSignal, createEffect } from './signal.js';
+<pre class="prettyprint source lang-js"><code>import { createSignal, createEffect } from './microview.js';
 
 const count = createSignal(0);
 
@@ -98,7 +98,7 @@ count(1); // -> &quot;The count is now: 1&quot;
 </ol>
 <p>The <code>mount(selector, component)</code> function connects your root component to a DOM element (e.g., <code>#root</code>). It returns a <code>dispose</code> function to completely unmount the component and clean up all associated reactive effects, ensuring no memory leaks.</p>
 <p>You can also use <code>onCleanup(fn)</code> to register a function to be called when the current reactive scope (component of effect) is disposed.</p>
-<pre class="prettyprint source lang-js"><code>import { onCleanup } from './signal.js';
+<pre class="prettyprint source lang-js"><code>import { onCleanup } from './microview.js';
 
 function MyComponent() {
   const timer = setInterval(() => console.log('tick'), 1000);
@@ -113,7 +113,7 @@ function MyComponent() {
 </code></pre>
 <h2>Example: A Reactive Counter</h2>
 <p>This shows how signals are used directly as reactive bindings in the UI.</p>
-<pre class="prettyprint source lang-js"><code>import { createSignal } from './signal.js';
+<pre class="prettyprint source lang-js"><code>import { createSignal } from './microview.js';
 import { h, mount } from './microview.js';
 
 const count = createSignal(0);
@@ -138,7 +138,7 @@ mount('#root', Counter);
 <p>It takes a routes object (path-to-component mapping) and returns an <code>activeComponent</code> signal, which holds the component corresponding to the current URL hash.</p>
 <h3><code>Link</code> Component</h3>
 <p>Use the <code>Link</code> component to create navigation elements.</p>
-<pre class="prettyprint source lang-js"><code>import { Link } from './router.js';
+<pre class="prettyprint source lang-js"><code>import { Link } from './microview.js';
 
 function App({ activeComponent }) {
   return h(

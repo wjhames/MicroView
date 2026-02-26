@@ -37,7 +37,7 @@ Reactivity in MicroView is powered by **Signal**. Signals are the foundation of 
 - `createEffect(callback)`: Executes a function and automatically re-runs it whenever a signal it depends on changes.
 
 ```js
-import { createSignal, createEffect } from './signal.js';
+import { createSignal, createEffect } from './microview.js';
 
 const count = createSignal(0);
 
@@ -65,7 +65,7 @@ The `mount(selector, component)` function connects your root component to a DOM 
 You can also use `onCleanup(fn)` to register a function to be called when the current reactive scope (component of effect) is disposed.
 
 ```js
-import { onCleanup } from './signal.js';
+import { onCleanup } from './microview.js';
 
 function MyComponent() {
   const timer = setInterval(() => console.log('tick'), 1000);
@@ -84,7 +84,7 @@ function MyComponent() {
 This shows how signals are used directly as reactive bindings in the UI.
 
 ```js
-import { createSignal } from './signal.js';
+import { createSignal } from './microview.js';
 import { h, mount } from './microview.js';
 
 const count = createSignal(0);
@@ -116,7 +116,7 @@ It takes a routes object (path-to-component mapping) and returns an `activeCompo
 Use the `Link` component to create navigation elements.
 
 ```js
-import { Link } from './router.js';
+import { Link } from './microview.js';
 
 function App({ activeComponent }) {
   return h(
