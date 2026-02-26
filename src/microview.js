@@ -1,4 +1,12 @@
 import { createRoot, createEffect as effect } from './signal.js';
+export {
+  createSignal,
+  createMemo,
+  createEffect,
+  createRoot,
+  onCleanup,
+} from './signal.js';
+export { createRouter, Link } from './router.js';
 
 /**
  * @file Microview - A lightweight library for creating reactive user interfaces.
