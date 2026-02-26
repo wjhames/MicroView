@@ -1,19 +1,11 @@
 # MicroView
 
-## Tagline
-
 A tiny signal-first UI library for building reactive interfaces with plain JavaScript.
 
 ## Code example
 
 ```js
-import {
-  createSignal,
-  createRouter,
-  Link,
-  h,
-  mount,
-} from './src/microview.js';
+import { createSignal, createRouter, Link, h, mount } from './src/microview.js';
 
 const count = createSignal(0);
 
@@ -23,7 +15,7 @@ function Counter() {
     null,
     h('h1', null, 'MicroView Counter'),
     h('p', null, () => `Count: ${count()}`),
-    h('button', { onClick: () => count(count() + 1) }, 'Increment')
+    h('button', { onClick: () => count(count() + 1) }, 'Increment'),
   );
 }
 
@@ -38,7 +30,7 @@ function App() {
     'div',
     null,
     h('nav', null, h(Link, { to: '/' }, 'Home')),
-    activeComponent
+    activeComponent,
   );
 }
 
