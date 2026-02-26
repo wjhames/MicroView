@@ -1,5 +1,4 @@
-import { h } from '../../src/microview.js';
-import { Link } from '../../src/router.js';
+import { h, Link } from '../../src/microview.js';
 
 export function Navbar() {
   return h(

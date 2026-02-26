@@ -1,5 +1,4 @@
-import { createMemo } from '../../src/signal.js';
-import { h } from '../../src/microview.js';
+import { createMemo, h } from '../../src/microview.js';
 
 /**
  * Component for a single To-Do item.

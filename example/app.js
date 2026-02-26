@@ -1,5 +1,4 @@
-import { createRouter } from '../src/router.js';
-import { h, mount } from '../src/microview.js';
+import { createRouter, h, mount } from '../src/microview.js';
 import { AppLayout } from './layouts/AppLayout.js';
 import { Home } from './pages/Home.js';
 import { About } from './pages/About.js';

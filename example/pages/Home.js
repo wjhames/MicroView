@@ -1,5 +1,4 @@
-import { h } from '../../src/microview.js';
-import { Link } from '../../src/router.js';
+import { h, Link } from '../../src/microview.js';
 
 const CARD_STYLE =
   'padding: 20px; max-width: 600px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); color: #333;';

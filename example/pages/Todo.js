@@ -1,5 +1,4 @@
-import { createSignal, createMemo } from '../../src/signal.js';
-import { h } from '../../src/microview.js';
+import { createSignal, createMemo, h } from '../../src/microview.js';
 import { TodoItem } from '../components/TodoItem.js';
 
 const todoList = createSignal([
